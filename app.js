@@ -8,7 +8,7 @@ const users = [
    { 
       id: 2,
       name: "Kerry Packer",
-      email: "kerry@gmail.com"
+      email: "kerrypacker@gmail.com"
    },
    { 
       id: 3,
@@ -17,23 +17,25 @@ const users = [
    },
 ];
 
-function findById(user, id) {
-    return user.id == id;
+function findById(user, id,arr, param) {
+    return user.id == userId ;
 }
 
 const app = express();
 
-app.get('/allusers', (req, res) => {
+/*
+app.get('/users', (req, res) => {
     res.status(200).send({
         success:'true',
     })
 });
-
+*/
 
 app.get('/user/', (req, res) => {
+    userId = req.query.id;
     res.status(200).send({
         success:'true',
-        users: users.find(findById,req.query.id),
+        users: users.find(findById)
     })
 });
 const PORT = 4321;
